@@ -56,12 +56,19 @@ class MainHandler(webapp2.RequestHandler):
                         # If the user is registered...
 			if cssi_user:
                             # Greet them with their personal information
-		  		self.response.write('''OOOOOe %s %s (%s)! <br> %s <br>''' % (
-					cssi_user.first_name,
-					cssi_user.last_name,
-					email_address,
-					signout_link_html))
-			# If the user isn't registered...
+		  	    user = users.get_current_user()
+                            cssi_user = CssiUser(
+                                            first_name=self.request.get('first_name'),
+                                            last_name=self.request.get('last_name'),
+                                            email=user.nickname())
+                            cssi_user.put()
+                            signed_in_template = the_jinja_env.get_template('templates/index.html')
+                            variable_dict = {
+                            "username" : cssi_user.first_name
+                            }
+                            self.response.write(signed_in_template.render(variable_dict))
+
+							# If the user isn't registered...
 			else:
                             # Offer a registration form for a first-time visitor:
 		  		self.response.write('''
