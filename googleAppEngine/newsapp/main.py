@@ -23,7 +23,7 @@ class CssiUser(ndb.Model):
 #     text =
 
 
-class SecretHandler(webapp2.RequestHandler):
+class NewsHandler(webapp2.RequestHandler):
 	def get(self):
 		user = users.get_current_user()
 		if user:
@@ -56,7 +56,7 @@ class MainHandler(webapp2.RequestHandler):
                         # If the user is registered...
 			if cssi_user:
                             # Greet them with their personal information
-		  		self.response.write('''OOOOOe %s %s (%s)! <br> %s <br>''' % (
+		  		self.response.write('''This Page should be the home screen  %s %s (%s)! <br> %s <br>''' % (
 					cssi_user.first_name,
 					cssi_user.last_name,
 					email_address,
@@ -95,5 +95,5 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
-	('/classified', SecretHandler),
+	('/news', NewsHandler),
 	], debug=True)
