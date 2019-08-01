@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+        <title> STAND BY MEME </title>
+</head>
+
+<link rel="stylesheet" href="/stylesheet/styles.css">
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+<link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/paper-input/paper-input.html">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<div class = "post_header">
+  <a href="/" class = "post_header"><h1>STAND BY MEME</h1></a>
+</div>
+<hr>
+
+<form class="add-college"action = "/add_college" method="post">
+  <br>
+  <h4>Which college would you like to add?</h4>
+  <paper-input always-float-label name ="name" label="Enter College Name Here"></paper-input>
+
+  <h4>Where is this college located? (Ex: Sacramento, California)</h4>
+  <paper-input always-float-label name ="location" label="Enter City and State Here"></paper-input>
+
+  <h4>Input url of college logo:</h4>
+  <paper-input always-float-label name ="logo_url" label="Enter Copied Image Address"></paper-input>
+<input type = "submit"></input>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/scripts/photogram.js"></script>
+
