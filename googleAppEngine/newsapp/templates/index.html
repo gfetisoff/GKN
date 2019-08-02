@@ -26,9 +26,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 				<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
 
-				<a href="#home" class="w3-bar-item w3-button w3-padding-large"><font size="3" color="white">HOME</a>
-
-				<a href="#cssi" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOCAL NEWS</a>
+				<a href="#home" class="w3-bar-item w3-button w3-padding-large"><font size="3" color="white">OUR NEWS</a>
 
 				<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
 
@@ -82,7 +80,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 			<a href="https://www.nbcnews.com/" class="w3-bar-item w3-button w3-hover-black" href="#">NBC News</a> 
 			<a href="https://www.usatoday.com/" class="w3-bar-item w3-button w3-hover-black" href="#">USA Today</a>    
 			<a href="https://www.wsj.com/" class="w3-bar-item w3-button w3-hover-black" href="#">Wall Street Journal</a> 
-			<a href="https://www.nytimes.com/" class="w3-bar-item w3-button w3-hover-black" href="#">New York Times</a>       
+			<a href="https://www.nytimes.com/" class="w3-bar-item w3-button w3-hover-black" href="#">New York Times</a>
+
+            <h4 class="w3-bar-item"><b>Local News</b></h4>
+            <a href="https://www.modbee.com/" class="w3-bar-item w3-button w3-hover-black" href="#">Modesto</a>
+            <a href="https://www.rosevilletoday.com/news/rocklin/" class="w3-bar-item w3-button w3-hover-black" href="#">Rocklin</a>
+            <a href="https://patch.com/california/sancarlos" class="w3-bar-item w3-button w3-hover-black" href="#">San Carlos</a>
+
+
 		</nav>
 
 		<!-- Overlay effect when opening sidebar on small screens -->
@@ -120,7 +125,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 						<!-- creates the image -->
 						<div class = "home-page">
 							<div class = "home-word">
-								<h3>TRENDING:</h3>
 							</div>
 							<div id = "post-container">
 								<div class="container" style="width: 95%"; "margin: auto">
@@ -142,10 +146,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 						</div>
 						<!-- Use any element to open the sidenav -->
 						<div id="mySidenav" class="sidenav">
-							<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-							<h3 class="collegeHeader" style="color:white; font-size: 35px">Colleges:</h3>
-							{% for college in colleges %}
-							{% endfor %}
 						</div>
 						<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 						<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
