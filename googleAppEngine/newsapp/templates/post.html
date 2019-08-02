@@ -1,102 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/paper-card/paper-card.html">
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/paper-input/paper-input.html">
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/paper-item/paper-item.html">
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/paper-menu/paper-menu.html">
-
-    <link rel="stylesheet" type="text/css" href="/stylesheet/styles.css">
-  </head>
-  <body>
-    <div class = "post-page">
-      <title> STAND BY MEME</title>
-        <div class = "post_header">
-          <a href="/" id="post_header" class="post_header"><h1>STAND BY MEME</h1></a>
-        </div>
-        <hr>
-
-        <custom-style>
-          <style is="custom-style">
-            .cafe-header { @apply --paper-font-headline; }
-            .cafe-light { color: var(--paper-grey-600); }
-            .cafe-location {
-              float: right;
-              font-size: 15px;
-              vertical-align: middle;
-            }
-            .cafe-reserve { color: var(--google-blue-500); }
-            iron-icon.star {
-              --iron-icon-width: 16px;
-              --iron-icon-height: 16px;
-              color: var(--paper-amber-500);
-            }
-            iron-icon.star:last-of-type { color: var(--paper-grey-500); }
-          </style>
-        </custom-style>
-
-        <div class="main-content">
-          <paper-card image="{{post.post_img_url}}" alt="Meme">
-            <div class="card-content">
-              <div class="cafe-header"><h4>DANKNESS RATING</h4>
-                <div class="cafe-location cafe-light">
-                  <iron-icon icon="communication:location-on"></iron-icon>
-                </div>
-              </div>
-{% if current_user %}
-              <div class="meme-rating" id='left'>
-                <form action = "/like" method="post">
-                  <input type = "hidden" name = "post_key" value = "{{post.key.urlsafe()}}">
-                  <button type = "submit" class = "like">
-                    <img src = "/pictures/frog.png" alt = "Dank" style = "width:60px;height:60px;">
-                  </button>
-                </form>
-                <form action = "/dislike" method="post">
-                  <input type = "hidden" name = "post_key" value = "{{post.key.urlsafe()}}">
-                  <button type = "submit" class = "like">
-                    <img src = "/pictures/AngryPepe.png" alt = "Dank" style = "width:60px;height:60px;">
-                </button>
-              </form>
-            </div>
-{% endif %}
-            <p>Likes: {{post.like_count}}</p>
-            <p>Dislikes: {{post.dislike_count}}</p>
-            <p>seen by: {{post.view_count}}</p>
-            <p>posted by: {{post.user}}</p>
-            <p class="cafe-light">{{post.caption}}</p>
-          </div>
-        </paper-card>
-
-        <div class = "comment-content">
-          <paper-card heading="Comments" class="post-comments">
-            <div role="listbox">
-              {% if current_user %}
-                <form action = "/new_comment" method="post">
-                  <input type = "hidden" name="post_key" value="{{post.key.urlsafe()}}">
-                  <paper-input always-float-label name = "content" label="Comment Here"></paper-input>
-                </form>
-              {% endif %}
-              {% for comment in comments %}
-                <paper-item>{{comment.content}}
-                  <br>Written by: {{comment.user}}
-                  <br>Posted on {{comment.post_time.strftime("%b %d, %Y")}}
-                  <hr>
-                </paper-item>
-                <br>
-                {% endfor %}
-              </div>
-          </paper-card>
-        </div>
-    </div>
+<head>
+<title> POSTS! </title>
+</head>
+<body>
+<h3> welcome {{userName}} </h3>
+{% for post in posts %}
+<div class="row">
+ User {{post.userName}} posted: {{post.newsName}}, {{post.newsDesc}}, {{post.newsData}}.
 </div>
-
-<script src="http://polygit.org/polymer+:master/components/webcomponentsjs/webcomponents-lite.js"></script>
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="scripts/post-image.js"></script>
-<script src="scripts/post-comments.js"></script>
+{% endfor %}
 </body>
 </html>
